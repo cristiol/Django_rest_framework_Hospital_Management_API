@@ -43,7 +43,7 @@ class CustomAuthToken(ObtainAuthToken):
 
 
 class DoctorRegistrationView(APIView):
-    permission_classes = [IsGeneralManager | IsDoctor]
+    permission_classes = [IsGeneralManager]
 
     @extend_schema(request=DoctorRegistrationSerializer, responses=DoctorRegistrationSerializer)
     def post(self, request, format=None):

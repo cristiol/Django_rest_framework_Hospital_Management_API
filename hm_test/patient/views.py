@@ -137,7 +137,7 @@ class UpdateAssignedAssistantsView(APIView):
     @extend_schema(request=PatientSerializer,responses=PatientSerializer)
     def put(self, request, pk):
         patient = get_object_or_404(Patient, pk=pk)  # Get the patient object or return a 404 if not found
-        user_id = request.user.id  # Get the ID of the current user (assistant)
+        user_id = request.user.id  # Get the ID of the current user (doctor)
         # Try to get the Doctor object corresponding to the user ID
         try:
             doctor = Doctor.objects.get(user_id=user_id)
